@@ -1,13 +1,14 @@
-package com.sukajee.weather.presentation
+package com.sukajee.weather.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sukajee.weather.domain.location.LocationTracker
-import com.sukajee.weather.domain.repository.WeatherRepository
-import com.sukajee.weather.domain.util.Resource
+import com.sukajee.weather.repository.WeatherRepository
+import com.sukajee.weather.ui.WeatherState
+import com.sukajee.weather.util.LocationTracker
+import com.sukajee.weather.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -34,14 +35,14 @@ class WeatherViewModel @Inject constructor(
                 )) {
                     is Resource.Success -> {
                         state = state.copy(
-                            weatherInfo = result.data,
+                            hourly = result.data?.hourly,
                             isLoading = false,
                             error = null
                         )
                     }
                     is Resource.Error -> {
                         state = state.copy(
-                            weatherInfo = null,
+                            hourly = null,
                             isLoading = false,
                             error = result.message
                         )

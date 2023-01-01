@@ -1,4 +1,4 @@
-package com.sukajee.weather.data.location
+package com.sukajee.weather.util
 
 import android.Manifest
 import android.app.Application
@@ -8,7 +8,6 @@ import android.location.Location
 import android.location.LocationManager
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.FusedLocationProviderClient
-import com.sukajee.weather.domain.location.LocationTracker
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.suspendCancellableCoroutine
 import javax.inject.Inject

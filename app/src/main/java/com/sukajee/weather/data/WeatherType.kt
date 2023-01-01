@@ -1,4 +1,4 @@
-package com.sukajee.weather.domain.weather
+package com.sukajee.weather.data
 
 import androidx.annotation.DrawableRes
 import com.sukajee.weather.R

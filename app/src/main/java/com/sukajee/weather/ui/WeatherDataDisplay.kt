@@ -1,4 +1,4 @@
-package com.sukajee.weather.presentation
+package com.sukajee.weather.ui
 
 import android.widget.Space
 import androidx.compose.foundation.layout.Row

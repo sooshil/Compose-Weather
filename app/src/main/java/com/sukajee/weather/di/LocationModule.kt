@@ -1,7 +1,7 @@
 package com.sukajee.weather.di
 
-import com.sukajee.weather.data.location.DefaultLocationTracker
-import com.sukajee.weather.domain.location.LocationTracker
+import com.sukajee.weather.util.DefaultLocationTracker
+import com.sukajee.weather.util.LocationTracker
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

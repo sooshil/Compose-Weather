@@ -1,4 +1,4 @@
-package com.sukajee.weather.presentation
+package com.sukajee.weather.ui
 
 import android.Manifest
 import android.os.Bundle
@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.sukajee.weather.ui.theme.DarkBlue
 import com.sukajee.weather.ui.theme.DeepBlue
 import com.sukajee.weather.ui.theme.WeatherTheme
+import com.sukajee.weather.viewmodel.WeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

@@ -1,4 +1,4 @@
-package com.sukajee.weather.presentation
+package com.sukajee.weather.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -16,9 +16,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import java.time.format.DateTimeFormatter
-import kotlin.math.roundToInt
 import com.sukajee.weather.R
+import com.sukajee.weather.data.toSingleWeather
+import kotlin.math.roundToInt
 
 @Composable
 fun WeatherCard(
@@ -32,14 +32,14 @@ fun WeatherCard(
         backgroundColor = backgroundColor,
         shape = RoundedCornerShape(10.dp)
     ) {
-        state.weatherInfo?.currentWeatherData?.let { data ->
+        state.hourly?.toSingleWeather()?.let { data ->
             Column(
                 modifier = modifier
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Today ${data.time.format(DateTimeFormatter.ofPattern("HH:mm"))}",
+                    text = "Today ${data.time}:00",
                     modifier = modifier.align(Alignment.End),
                     fontSize = 18.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -58,7 +58,7 @@ fun WeatherCard(
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "${data.temperatureCelsius}°C",
+                    text = "${data.temperatureCelsius}°F",
                     fontWeight = FontWeight.Bold,
                     fontSize = 50.sp,
                     color = Color.White

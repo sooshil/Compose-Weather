@@ -1,4 +1,4 @@
-package com.sukajee.weather.presentation
+package com.sukajee.weather.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -13,19 +13,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.sukajee.weather.domain.weather.WeatherData
-import java.time.format.DateTimeFormatter
+import com.sukajee.weather.data.model.SingleWeather
 
 @Composable
 fun HourlyWeatherDisplay(
-    weatherData: WeatherData,
+    weatherData: SingleWeather,
     modifier: Modifier = Modifier,
     textColor: Color = Color.White
 ) {
     val formattedTime = remember(weatherData) {
-        weatherData.time.format(
-            DateTimeFormatter.ofPattern("HH:mm")
-        )
+        val hour = when {
+            weatherData.time < 10 -> "0${weatherData.time}"
+            weatherData.time == 24 -> "00"
+            else -> {
+                if(weatherData.time % 24 < 10) "0${weatherData.time % 24}" else "${weatherData.time % 24}"
+            }
+        }
+        "$hour:00"
     }
     Column(
         modifier = modifier,
@@ -42,7 +46,7 @@ fun HourlyWeatherDisplay(
             modifier = Modifier.width(40.dp)
         )
         Text(
-            text = "${weatherData.temperatureCelsius}°C",
+            text = "${weatherData.temperatureCelsius}°F",
             color = textColor,
             fontWeight = FontWeight.Bold
         )

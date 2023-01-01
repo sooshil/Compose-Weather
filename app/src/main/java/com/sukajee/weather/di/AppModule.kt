@@ -3,7 +3,7 @@ package com.sukajee.weather.di
 import android.app.Application
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
-import com.sukajee.weather.data.remote.WeatherAPI
+import com.sukajee.weather.data.WeatherAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package com.sukajee.weather.domain.location
+package com.sukajee.weather.util
 
 import android.location.Location
 
